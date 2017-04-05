@@ -20,13 +20,13 @@ class ItemList extends Component {
       }
     }
     const items = this.props.goods.map(item => {
-      const { id, title, desc, img, price } = item
+      const { id, title, description, image, price } = item
       return <li key = {id}>
         <Item
           id = {id}
           title = {title}
-          desc = {desc}
-          img = {img}
+          description = {description}
+          image = {image}
           price = {price}
           deleteItem = {this.deleteItem}
         />

@@ -14,6 +14,8 @@ export default function App(props) {
     const style = {
         display: 'flex',
         flexFlow: 'column nowrap',
+        width: '100%',
+        minHeight: '100vh',
     }
     return (
         <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
