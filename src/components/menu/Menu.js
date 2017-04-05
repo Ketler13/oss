@@ -24,7 +24,7 @@ export default function Menu(props) {
                     {items}
                 </IconMenu>
             }
-            title="gymlog"
+            title="Beast Shop"
             iconClassNameRight="muidocs-icon-navigation-expand-more"
         >
         </AppBar>

@@ -1,18 +1,10 @@
-import { DELETE_EXCERCISE, ADD_LINK } from '../constants'
+import { DELETE_ITEM } from '../constants'
 
-export function deleteExcercise(id) {
+export function deleteItemById(id) {
     return {
-        type: DELETE_EXCERCISE,
+        type: DELETE_ITEM,
         payload: {
             id
         }
-    }
-}
-
-export function addLink(excerciseId, link) {
-    return {
-        type: ADD_LINK,
-        payload: { excerciseId, link },
-        generateId: true
     }
 }

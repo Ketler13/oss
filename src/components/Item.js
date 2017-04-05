@@ -1,10 +1,15 @@
 import React, { Component, PropTypes } from 'react'
 import Paper from 'material-ui/Paper'
+import IconButton from 'material-ui/IconButton'
+import ContentClear from 'material-ui/svg-icons/content/clear'
 
-export default ({title, desc, img, price}) => {
+export default ({title, desc, img, price, id, deleteItem}) => {
   const style = {
-    basic: {
-      display: 'block',
+    container: {
+      display: 'flex',
+      flexFlow: 'column nowrap',
+      alignItems: 'center',
+      position: 'relative',
       width: '300px',
       minHeight: '400px',
       margin: '10px',
@@ -13,13 +18,28 @@ export default ({title, desc, img, price}) => {
     img: {
       maxWidth: '250px',
       maxHeight: '250px',
+      margin: '5px 0'
     },
     price: {
       color: 'rgba(142, 68, 173,1.0)',
+      paddingTop: '10px',
+      fontSize: '18px',
+    },
+    button: {
+      display: 'block',
+      position: 'absolute',
+      top: '-5px',
+      left: '250px',
     }
   }
   return (
-    <Paper style = {style.basic} zDepth={5}>
+    <Paper style = {style.container} zDepth={5}>
+      <IconButton
+        style = {style.button}
+        onTouchTap = {deleteItem(id)}
+      >
+        <ContentClear />
+      </IconButton>
       <p>{title}</p>
       <img style = {style.img} src = {img}/>
       <p>{desc}</p>

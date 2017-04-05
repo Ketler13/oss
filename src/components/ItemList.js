@@ -1,8 +1,15 @@
 import React, { Component, PropTypes } from 'react'
-import { goods } from '../items'
 import Item from './Item'
+import { deleteItemById } from '../AC'
+import { mapToArray } from '../helpers'
+import { connect } from 'react-redux'
 
-export default class ItemList extends Component {
+class ItemList extends Component {
+
+  deleteItem = id => ev => {
+    this.props.deleteItemById(id)
+  }
+
   render() {
     const style = {
       container: {
@@ -12,14 +19,16 @@ export default class ItemList extends Component {
         alignItems: 'center',
       }
     }
-    const items = goods.map(item => {
+    const items = this.props.goods.map(item => {
       const { id, title, desc, img, price } = item
       return <li key = {id}>
         <Item
+          id = {id}
           title = {title}
           desc = {desc}
           img = {img}
           price = {price}
+          deleteItem = {this.deleteItem}
         />
       </li>
     })
@@ -29,3 +38,10 @@ export default class ItemList extends Component {
     )
   }
 }
+
+export default connect(state => {
+  const goods = mapToArray(state.items)
+  return {
+    goods
+  }
+}, { deleteItemById })(ItemList)
