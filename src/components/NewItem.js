@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import Paper from 'material-ui/Paper'
 import TextField from 'material-ui/TextField'
-import Slider from 'material-ui/Slider'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
 import ContentAdd from 'material-ui/svg-icons/content/add'
 import {addItem} from '../AC'
@@ -56,6 +55,15 @@ class NewItem extends Component {
     }
     const disabled = !(this.state.title && this.state.description
                        && this.state.image && this.state.price)
+
+    if (!this.props.isAdmin) {
+      return (
+        <Paper style = {style.container} zDepth={5}>
+          <p>Log in to add item</p>
+        </Paper>
+      )
+    }
+
     return (
       <Paper style = {style.container} zDepth={5}>
         <TextField
@@ -98,4 +106,8 @@ class NewItem extends Component {
   }
 }
 
-export default connect(null, {addItem})(NewItem)
+export default connect(state => {
+  return {
+    isAdmin: state.roles.isAdmin
+  }
+}, {addItem})(NewItem)

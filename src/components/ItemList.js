@@ -29,6 +29,7 @@ class ItemList extends Component {
           image = {image}
           price = {price}
           deleteItem = {this.deleteItem}
+          isAdmin = {this.props.isAdmin}
         />
       </li>
     })
@@ -42,6 +43,7 @@ class ItemList extends Component {
 export default connect(state => {
   const goods = mapToArray(state.items)
   return {
+    isAdmin: state.roles.isAdmin,
     goods
   }
 }, { deleteItemById })(ItemList)

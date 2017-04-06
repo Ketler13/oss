@@ -3,7 +3,7 @@ import Paper from 'material-ui/Paper'
 import IconButton from 'material-ui/IconButton'
 import ContentClear from 'material-ui/svg-icons/content/clear'
 
-export default ({title, description, image, price, id, deleteItem}) => {
+export default ({title, description, image, price, id, deleteItem, isAdmin}) => {
   const style = {
     container: {
       display: 'flex',
@@ -34,12 +34,17 @@ export default ({title, description, image, price, id, deleteItem}) => {
   }
   return (
     <Paper style = {style.container} zDepth={5}>
-      <IconButton
-        style = {style.button}
-        onTouchTap = {deleteItem(id)}
-      >
-        <ContentClear />
-      </IconButton>
+      {
+        isAdmin ?
+        <IconButton
+          style = {style.button}
+          onTouchTap = {deleteItem(id)}
+        >
+          <ContentClear />
+        </IconButton> :
+        null
+      }
+
       <p>{title}</p>
       <img style = {style.img} src = {image}/>
       <p>{description}</p>

@@ -10,7 +10,7 @@ export const items = [
     "id": "1",
     "title": "T-shirt",
     "price": "12.50",
-    "desc": "Try to wear this t-shirt and you'll never change it.",
+    "description": "Try to wear this t-shirt and you'll never change it.",
     "image": "http://cdn.shopify.com/s/files/1/0228/8535/products/Hairy-Chest-Tshirt-Front_grande.jpg?v=1474047007"
   },
   {
