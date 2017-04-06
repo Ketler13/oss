@@ -1,4 +1,4 @@
-import { DELETE_ITEM, ADD_ITEM, CHANGE_ROLE } from '../constants'
+import { DELETE_ITEM, ADD_ITEM, CHANGE_ROLE, DELETE_ALL_ITEMS } from '../constants'
 
 export function deleteItemById(id) {
   return {
@@ -22,5 +22,11 @@ export function addItem(config) {
 export function changeRole() {
   return {
     type: CHANGE_ROLE
+  }
+}
+
+export function deleteAllItems() {
+  return {
+    type: DELETE_ALL_ITEMS
   }
 }

@@ -1,7 +1,7 @@
-import { DELETE_ITEM, ADD_ITEM } from '../constants'
+import { DELETE_ITEM, ADD_ITEM, DELETE_ALL_ITEMS } from '../constants'
 import { items } from '../items'
 import { arrayToMap } from '../helpers'
-import { Record } from 'immutable'
+import { Record, OrderedMap } from 'immutable'
 
 const ItemModel = Record({
     "id": null,
@@ -21,6 +21,9 @@ export default (state = defaultState, action) => {
 
     case ADD_ITEM:
       return state.set(randomId, new ItemModel({...payload, id: randomId}))
+
+    case DELETE_ALL_ITEMS:
+      return new OrderedMap({})
   }
   return state
 }

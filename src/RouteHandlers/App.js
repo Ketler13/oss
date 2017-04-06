@@ -7,6 +7,7 @@ import Paper from 'material-ui/Paper'
 import { Provider } from 'react-redux'
 import Menu from '../components/menu/Menu'
 import MenuItem from '../components/menu/MenuItem'
+import ControlPanel from '../components/ControlPanel'
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
@@ -25,6 +26,7 @@ export default function App(props) {
                         <MenuItem name = "Items" path="/items"/>
                         <MenuItem name = "Add item" path="/add"/>
                     </Menu>
+                    <ControlPanel />
                     {props.children}
                 </Paper>
             </Provider>
