@@ -1,4 +1,4 @@
-import { DELETE_ITEM, ADD_ITEM, DELETE_ALL_ITEMS } from '../constants'
+import { DELETE_ITEM, ADD_ITEM, DELETE_ALL_ITEMS, GET_FROM_STORAGE } from '../constants'
 import { items } from '../items'
 import { arrayToMap } from '../helpers'
 import { Record, OrderedMap } from 'immutable'
@@ -24,6 +24,9 @@ export default (state = defaultState, action) => {
 
     case DELETE_ALL_ITEMS:
       return new OrderedMap({})
+
+    case GET_FROM_STORAGE:
+      return state.merge(payload)
   }
   return state
 }

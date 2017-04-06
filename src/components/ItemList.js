@@ -1,10 +1,14 @@
 import React, { Component, PropTypes } from 'react'
 import Item from './Item'
-import { deleteItemById } from '../AC'
+import { deleteItemById, getFromStorage } from '../AC'
 import { mapToArray } from '../helpers'
 import { connect } from 'react-redux'
 
 class ItemList extends Component {
+
+  componentDidMount() {
+    this.props.getFromStorage()
+  }
 
   deleteItem = id => ev => {
     this.props.deleteItemById(id)
@@ -46,4 +50,4 @@ export default connect(state => {
     isAdmin: state.roles.isAdmin,
     goods
   }
-}, { deleteItemById })(ItemList)
+}, { deleteItemById, getFromStorage })(ItemList)
