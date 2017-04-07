@@ -5,6 +5,7 @@ import MenuItem from 'material-ui/MenuItem'
 import IconButton from 'material-ui/IconButton'
 import MenuIcon from 'material-ui/svg-icons/navigation/menu'
 import Toggle from 'material-ui/Toggle'
+import logo from '../../img/logo.png'
 import { changeRole } from '../../AC'
 import { connect } from 'react-redux'
 
@@ -32,7 +33,6 @@ function Menu(props) {
             {items}
         </IconMenu>
       }
-      title="Beast Shop"
       iconElementRight = {
         <Toggle
           label = {props.isAdmin ? 'Log Out' : 'Log In'}
@@ -42,6 +42,7 @@ function Menu(props) {
         />
       }
     >
+      <img src = {logo}/>
     </AppBar>
   )
 }
