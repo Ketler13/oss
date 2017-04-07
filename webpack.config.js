@@ -10,13 +10,6 @@ module.exports = {
         filename: 'bundle.js',
         publicPath: '/static/'
     },
-    devServer: {
-        proxy: [{
-            path: '/api/',
-            target: 'http://localhost:3001'
-        }],
-        historyApiFallback: true
-    },
     module: {
         loaders: [
             {
@@ -27,6 +20,10 @@ module.exports = {
             {
                 test: /\.css$/,
                 loader: "style-loader!css-loader"
+            },
+            {
+                test: /\.(jpg|png)$/,
+                loader: "url-loader"
             }
         ]
     }
