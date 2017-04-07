@@ -46,6 +46,11 @@ function Menu(props) {
   )
 }
 
+Menu.propTypes = {
+  isAdmin: PropTypes.bool,
+  changeRole: PropTypes.func
+}
+
 export default connect(state => {
   return {
     isAdmin: state.roles.isAdmin

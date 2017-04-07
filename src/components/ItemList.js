@@ -6,6 +6,18 @@ import { connect } from 'react-redux'
 
 class ItemList extends Component {
 
+  static propTypes = {
+    goods: PropTypes.array.isRequired,
+    isAdmin: PropTypes.bool.isRequired,
+    deleteItemById: PropTypes.func,
+    getFromStorage: PropTypes.func
+  }
+
+  static defaultProps = {
+    goods: [],
+    isAdmin: false
+  }
+
   componentDidMount() {
     this.props.getFromStorage()
   }

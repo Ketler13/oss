@@ -7,6 +7,16 @@ import {addItem} from '../AC'
 import { connect } from 'react-redux'
 
 class NewItem extends Component {
+
+  static propTypes = {
+    isAdmin: PropTypes.bool.isRequired,
+    addItem: PropTypes.func
+  }
+
+  static defaultProps = {
+    isAdmin: false
+  }
+
   state = {
     title: '',
     description: '',

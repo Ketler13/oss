@@ -54,6 +54,12 @@ const ControlPanel = ({goods, isAdmin, deleteAllItems}) => {
   )
 }
 
+ControlPanel.propTypes = {
+  goods: PropTypes.array,
+  isAdmin: PropTypes.bool,
+  deleteAllItems: PropTypes.func
+}
+
 export default connect(state => {
   const goods = mapToArray(state.items)
   return {

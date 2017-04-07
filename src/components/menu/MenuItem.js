@@ -11,8 +11,8 @@ function MenuItem(props) {
 }
 
 MenuItem.propTypes = {
-        path: PropTypes.string.isRequired,
-        name: PropTypes.string
+  path: PropTypes.string.isRequired,
+  name: PropTypes.string
 }
 
 export default MenuItem
